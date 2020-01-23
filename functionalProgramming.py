@@ -90,3 +90,120 @@ def print_text():
 	print("Hello World")
 
 print_text()
+
+
+######################################################
+######################RECURSION#######################
+######################################################
+
+#self reference
+def factorial(x):
+	if x == 1:
+		return 1
+	else:
+		return x * factorial(x-1)
+
+print(factorial(5))
+#120
+
+#can cause runtime error if no exit condition used
+
+#indirect recursion
+def is_even(x):
+	if x == 0:
+		return True
+	else:
+		return is_odd(x-1)
+
+def is_odd(x):
+	return not is_even(x)
+
+print(is_odd(17))	#True
+print(is_even(23))	#False
+
+
+
+#########SETS###############
+num_set = {1,2,3,4,5}
+
+#set have unique values only
+#union |(combine 2 sets, no repeat duplicates)
+#intersection & (item in both)
+#difference - (item in first set not in second)
+#symmetric difference ^(item not in other set)
+first={1,2,3,4,5,6}
+second={4,5,6,7,8,9}
+
+print(first | second)		#{1,2,3,4,5,6,7,8,9}
+print(first & second)		#{4,5,6}
+print(first - second)		#{7,8,9}
+print(second - first)		#{1,2,3}
+print(first ^ second)		#{1,2,3,7,8,9}
+
+
+
+
+
+
+
+
+#######################################################################################################
+#############################################WHEN TO USE###############################################
+#######################################################################################################
+
+#1. Dictionary
+#logical association between key:value pair required
+#fast lookup based on custom key
+#data constantly modified, as keys are mutable
+
+#2. List
+#data doesn't need random access
+#simple, iterable collection that is modified frequently
+
+#3. Set
+#uniqueness of elements
+
+#4. Tuples
+#data cannot change, but iterable using index
+
+#######################################################################################################
+#######################################################################################################
+#######################################################################################################
+
+
+
+###itertools###
+
+#standard library containing functions
+
+#count
+#cycle
+#repeat
+from itertools import count
+
+for i in count(3):
+	print(i)
+	if i>=11:
+		break
+		
+#3
+#4
+#5
+#6
+#7
+#8
+#9
+#10
+#11
+
+#takewhile(take items from iterable while predicate functin is true)
+#accumulate
+#product
+#permutations
+from itertools import accumulate, takewhile
+
+nums=
+list(accumulate(range(8)))
+print(nums)		#[0,1,3,6,10,15,21,28]
+
+print(list(takewhile(lambda x: x<=6, nums)))	#[0,1,3,6]
