@@ -1,3 +1,4 @@
+###################################CALCULATOR###############################
 while True:
 	print("Options:")
 	print("Enter 'add' to add two numbers")
